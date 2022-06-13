@@ -30,3 +30,28 @@ fn main() {
     // enums::run();
     ref_pointer::run();
 }
+
+pub fn add_some_number(num: i32) -> i32 {
+    if num > 50 {
+        num + num
+    } else {
+        panic!("Number is less than 50");
+        0
+    }
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    #[should_panic(expected="Number is less than 50")]
+    fn add_numbers() {
+        // assert!(8 < 3);
+        // assert_eq!(5 + 3, 8);
+        // println!("Expect to fail");
+        // assert_ne!(8, 8);
+        let sum = add_some_number(20);
+    }
+}
